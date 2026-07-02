@@ -182,7 +182,7 @@ Generated outputs:
 ## Top 10 Programming Languages
 
 <p align="center">
-  <img src="images/top_10_programming_languages.png" width="900">
+  <img src="top10repository.png" width="900">
 </p>
 
 ---
