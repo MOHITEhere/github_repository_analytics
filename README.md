@@ -14,9 +14,6 @@ The project follows a modular ETL (Extract → Transform → Load) pipeline and 
 
 ## Project Architecture
 
-<p align="center">
-  <img src="images/project_architecture.png" width="900">
-</p>
 
 ```
 GitHub REST API
@@ -181,11 +178,6 @@ Generated outputs:
 
 ## Dataset Overview
 
-<p align="center">
-  <img src="images/dataset_overview.png" width="900">
-</p>
-
----
 
 ## Top 10 Programming Languages
 
