@@ -32,10 +32,10 @@ df["description_length"] = (
     .str.len()
 )
 
-# Has license? 
+# license ahe ka 
 df["has_license"] = df["license"].notna()
 
-# Save
+# Save karuya 
 df.to_csv(
     "data/processed/github_repositories_featured.csv",
     index=False
