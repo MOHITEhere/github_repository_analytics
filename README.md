@@ -1,31 +1,30 @@
 # GitHub Repository Analytics & Dataset Pipeline
 
-An end-to-end Data Engineering project that collects GitHub repository metadata using the GitHub REST API, transforms raw JSON into a structured dataset, performs feature engineering and exploratory data analysis (EDA), and exports the final dataset in CSV and Parquet formats.
+An end-to-end Data Engineering project that collects repository metadata using the GitHub REST API, transforms raw JSON into a structured dataset, performs feature engineering, and conducts Exploratory Data Analysis (EDA). The processed dataset is exported in both CSV and Parquet formats, making it suitable for analytics, machine learning, and further research.
 
 ---
 
 ## Project Overview
 
-GitHub hosts millions of open-source repositories across multiple programming languages and technology domains. This project automates the process of collecting repository metadata, transforming the raw API response into a structured dataset, engineering meaningful features, and performing exploratory data analysis.
+This project demonstrates a complete ETL (Extract, Transform, Load) pipeline using the GitHub REST API. Repository metadata is collected through authenticated API requests, cleaned and transformed into a structured dataset, enriched with engineered features, and analyzed through visualizations.
 
-The project follows a modular ETL (Extract → Transform → Load) pipeline and demonstrates practical Data Engineering concepts including API integration, data cleaning, feature engineering, and dataset preparation.
+The project follows industry-standard data engineering practices, including modular code organization, secure credential management, reproducible data processing, and structured documentation.
 
 ---
 
-## Project Architecture
-
+## Project Workflow
 
 ```
 GitHub REST API
         │
         ▼
-Data Collection
+Repository Data Collection
         │
         ▼
 Raw JSON Storage
         │
         ▼
-Data Cleaning
+Data Cleaning & Transformation
         │
         ▼
 Feature Engineering
@@ -35,22 +34,7 @@ Exploratory Data Analysis
         │
         ▼
 CSV & Parquet Export
-        │
-        ▼
-Kaggle Dataset
 ```
-
----
-
-## Objectives
-
-- Collect repository metadata using the GitHub REST API
-- Store raw API responses for reproducibility
-- Transform nested JSON into a structured dataset
-- Engineer additional analytical features
-- Perform exploratory data analysis
-- Export the dataset in CSV and Parquet formats
-- Publish the dataset on Kaggle
 
 ---
 
@@ -68,18 +52,7 @@ github-repository-analytics/
 │       ├── github_repositories.parquet
 │       └── github_repositories_featured.csv
 │
-├── images/
-│   ├── project_architecture.png
-│   ├── dataset_overview.png
-│   ├── top_10_programming_languages.png
-│   ├── top_10_starred_repositories.png
-│   ├── repository_age_distribution.png
-│   ├── active_vs_inactive_repositories.png
-│   ├── license_distribution.png
-│   ├── stars_vs_forks_relationship.png
-│   └── top_repository_owners.png
-│
-├── notebooks/
+├── notebook/
 │   └── github_repository_eda.ipynb
 │
 ├── src/
@@ -88,10 +61,10 @@ github-repository-analytics/
 │   ├── clean_data.py
 │   └── feature_engineering.py
 │
-├── requirements.txt
 ├── README.md
-├── .gitignore
-└── .env
+├── LICENSE
+├── requirements.txt
+└── .gitignore
 ```
 
 ---
@@ -100,15 +73,15 @@ github-repository-analytics/
 
 | Category | Technologies |
 |-----------|--------------|
-| Language | Python |
+| Programming Language | Python |
 | API | GitHub REST API |
 | Data Processing | Pandas |
 | HTTP Requests | Requests |
 | Progress Tracking | tqdm |
 | Environment Variables | python-dotenv |
-| Data Storage | CSV, Parquet |
 | Visualization | Matplotlib |
 | Notebook | Jupyter Notebook |
+| Data Storage | CSV, Parquet |
 
 ---
 
@@ -116,21 +89,20 @@ github-repository-analytics/
 
 ### Extract
 
-- Authenticated using GitHub Personal Access Token
-- Retrieved repository metadata from the GitHub REST API
-- Implemented API pagination
-- Stored raw responses as JSON
+- Connected to the GitHub REST API using Personal Access Token authentication.
+- Retrieved repository metadata with API pagination.
+- Stored raw API responses in JSON format.
 
 ### Transform
 
-- Parsed nested JSON responses
-- Selected relevant repository attributes
-- Cleaned missing values
-- Standardized the dataset structure
+- Parsed nested JSON responses.
+- Extracted meaningful repository attributes.
+- Cleaned missing values.
+- Structured the dataset into a tabular format.
 
 ### Feature Engineering
 
-Additional features created:
+Additional analytical features created include:
 
 - Repository Age (Days)
 - Days Since Last Update
@@ -141,48 +113,44 @@ Additional features created:
 
 ### Load
 
-Generated outputs:
+Exported the processed dataset in:
 
-- CSV Dataset
-- Parquet Dataset
-- Feature Engineered Dataset
+- CSV Format
+- Parquet Format
 
 ---
 
-## Dataset Schema
+## Dataset Features
 
 | Feature | Description |
 |----------|-------------|
 | repository_name | Repository name |
-| full_name | Owner/Repository |
+| full_name | Complete repository name |
 | owner | Repository owner |
 | description | Repository description |
 | language | Primary programming language |
 | stars | Stargazer count |
 | forks | Fork count |
 | watchers | Watcher count |
-| open_issues | Open issues |
+| open_issues | Number of open issues |
 | license | Repository license |
-| created_at | Creation timestamp |
-| updated_at | Last update timestamp |
-| repository_age_days | Repository age |
+| created_at | Repository creation date |
+| updated_at | Last updated date |
+| repository_age_days | Repository age in days |
 | days_since_last_update | Days since last update |
-| star_fork_ratio | Star to fork ratio |
-| is_active | Active repository indicator |
-| description_length | Description length |
-| has_license | License availability |
+| star_fork_ratio | Ratio of stars to forks |
+| is_active | Repository activity status |
+| description_length | Length of repository description |
+| has_license | Indicates license availability |
 
 ---
 
 # Exploratory Data Analysis
 
-## Dataset Overview
-
-
 ## Top 10 Programming Languages
 
 <p align="center">
-  <img src="t10prog.png" width="900">
+<img src="t10prog.png" width="900">
 </p>
 
 ---
@@ -190,7 +158,7 @@ Generated outputs:
 ## Top 10 Starred Repositories
 
 <p align="center">
-  <img src="images/top_10_starred_repositories.png" width="900">
+<img src="top10repository.png" width="900">
 </p>
 
 ---
@@ -198,7 +166,7 @@ Generated outputs:
 ## Repository Age Distribution
 
 <p align="center">
-  <img src="images/repository_age_distribution.png" width="900">
+<img src="repoagedistri.png" width="900">
 </p>
 
 ---
@@ -206,7 +174,7 @@ Generated outputs:
 ## Active vs Inactive Repositories
 
 <p align="center">
-  <img src="images/active_vs_inactive_repositories.png" width="700">
+<img src="act_inact.png" width="700">
 </p>
 
 ---
@@ -214,7 +182,7 @@ Generated outputs:
 ## License Distribution
 
 <p align="center">
-  <img src="images/license_distribution.png" width="900">
+<img src="t10license.png" width="900">
 </p>
 
 ---
@@ -222,37 +190,34 @@ Generated outputs:
 ## Stars vs Forks Relationship
 
 <p align="center">
-  <img src="images/stars_vs_forks_relationship.png" width="900">
-</p>
-
----
-
-## Top Repository Owners
-
-<p align="center">
-  <img src="images/top_repository_owners.png" width="900">
+<img src="star_forks.png" width="900">
 </p>
 
 ---
 
 ## Key Insights
 
-- Repository metadata was collected directly from the GitHub REST API.
-- The dataset includes both raw and processed versions for reproducibility.
-- Feature engineering added analytical attributes that improve downstream analysis.
-- Programming language distribution highlights dominant technologies.
-- Repository popularity shows a strong relationship between stars and forks.
-- Repository activity metrics help distinguish actively maintained projects.
+- Successfully collected repository metadata from the GitHub REST API using authenticated requests.
+- Built a modular ETL pipeline for data collection, transformation, and export.
+- Generated structured datasets in both CSV and Parquet formats.
+- Created engineered features to improve analytical capabilities.
+- Identified the most common programming languages among highly starred repositories.
+- Analyzed repository popularity through star and fork distributions.
+- Examined repository maintenance trends using activity metrics.
 
 ---
 
-## How to Run
+## Installation
 
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/github-repository-analytics.git
+git clone https://github.com/MOHITEhere/github-repository-analytics.git
+```
 
+Navigate to the project directory
+
+```bash
 cd github-repository-analytics
 ```
 
@@ -260,11 +225,15 @@ Create a virtual environment
 
 ```bash
 python -m venv venv
+```
 
+Activate the environment
+
+```bash
 venv\Scripts\activate
 ```
 
-Install dependencies
+Install the required dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -273,16 +242,28 @@ pip install -r requirements.txt
 Create a `.env` file
 
 ```env
-GITHUB_TOKEN=your_personal_access_token
+GITHUB_TOKEN=your_github_personal_access_token
 ```
 
-Execute the pipeline
+---
+
+## Running the Pipeline
+
+Fetch repository data
 
 ```bash
 python src/fetch_repositories.py
+```
 
+Clean the dataset
+
+```bash
 python src/clean_data.py
+```
 
+Perform feature engineering
+
+```bash
 python src/feature_engineering.py
 ```
 
@@ -294,19 +275,34 @@ jupyter notebook
 
 ---
 
-## Future Improvements
+## Future Enhancements
 
-- Support multiple GitHub search queries
-- Automated scheduled data collection
-- Docker containerization
-- Logging and monitoring
-- Data validation framework
-- GitHub Actions CI/CD
-- Automated Kaggle dataset updates
-- Machine Learning models for repository popularity prediction
+- Collect repositories across multiple technology domains.
+- Automate scheduled dataset updates.
+- Add logging and monitoring.
+- Integrate Docker for containerization.
+- Implement GitHub Actions for CI/CD.
+- Publish automated Kaggle dataset updates.
+- Develop machine learning models using the generated dataset.
+
+---
+
+## Learning Outcomes
+
+This project provided hands-on experience in:
+
+- REST API Integration
+- Data Engineering
+- ETL Pipeline Development
+- Data Cleaning
+- Feature Engineering
+- Exploratory Data Analysis
+- Dataset Preparation
+- Git and GitHub
+- Technical Documentation
 
 ---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is released under the MIT License. See the `LICENSE` file for more information.
